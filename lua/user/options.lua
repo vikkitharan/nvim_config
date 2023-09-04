@@ -24,7 +24,7 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
-vim.o.nocompatible = true -- be iMproved, required
+--vim.o.nocompatible = true -- be iMproved, required
 
 vim.o.encoding = "utf-8"
 
@@ -46,10 +46,9 @@ vim.o.modeline = true
 vim.o.autowrite = true
 
 vim.o.wrap = false
-vim.o.nospell = true
+vim.o.spell = false
 
-vim.o.nospell = "manual"
-
+vim.o.cursorline = true
 
 vim.cmd([[
 
