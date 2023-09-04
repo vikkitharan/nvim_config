@@ -1,77 +1,61 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
--- Set highlight on search
-vim.o.hlsearch = true
-
--- Make line numbers default
-vim.wo.number = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
-
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
-
--- Enable break indent
-vim.o.breakindent = true
-
--- Save undo history
-vim.o.undofile = true
-
--- Case-insensitive searching UNLESS \C or capital in search
-vim.o.ignorecase = true
+vim.o.hlsearch = true -- Set highlight on search
+vim.wo.number = true -- Make line numbers default
+vim.o.mouse = 'a' -- Enable mouse mode
+vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
+vim.o.breakindent = true -- Enable break indent
+vim.o.undofile = true -- Save undo history
+vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.smartcase = true
-
--- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 250 -- Decrease update time
 vim.o.timeoutlen = 300
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
 
--- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
+vim.o.termguicolors = true -- NOTE: You should make sure your terminal supports this
 
 
--- from Vikki's vimrc
 
--- helight all found matching word
-vim.o.incsearch = true
+vim.o.incsearch = true -- helight all found matching word
 
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
+vim.o.nocompatible = true -- be iMproved, required
+
+vim.o.encoding = "utf-8"
+
+vim.o.wildmenu = true
+
+vim.o.backspace = 'indent,eol,start'
+
+vim.o.infercase = true -- Adjust case for auto complete
+
+vim.o.ruler = true
+vim.o.showcmd = true
+vim.o.showmode = true
+
+vim.o.showtabline = 2
+
+
+vim.o.cindent = true
+vim.o.modeline = true
+vim.o.autowrite = true
+
+vim.o.nowrap = true
+vim.o.nospell = true
+
+vim.o.nospell = "manual"
+
+
 vim.cmd([[
-
-set nocompatible              " be iMproved, required
-
-
-set encoding=utf-8
-
-" split windows vertically when termdebug is intitiated
-let g:termdebug_wide=1
-
-" automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
-
-:syntax enable
 
 " add current directory in path
 set path+=**
 
-set wildmenu
-
-:set backspace=indent,eol,start
-
-"Adjust case for auto complete
-:set infercase
-
-:set ruler showcmd showmode
 :set shortmess+=|
 
 "Disable bell sound
@@ -79,20 +63,6 @@ set belloff=all
 
 :set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 
-
-:set showtabline=2
-
-:set cindent
-:set modeline
-:set autowrite
-
-:set nowrap
-:set nospell
-
-
-:set foldmethod=manual
-
-set wildmenu
 set wildmode=longest:list
 set wildignore+=*.o
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png

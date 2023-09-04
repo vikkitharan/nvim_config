@@ -510,6 +510,13 @@ cmp.setup {
 --
 vim.cmd([[
 
+" split windows vertically when termdebug is intitiated
+let g:termdebug_wide=1
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+:syntax enable
 
 " mappings
 :nmap <Insert> i<CR><ESC>
