@@ -31,8 +31,11 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- :imap jj <Esc>
 vim.keymap.set('i', "jj", "<Esc>", { desc = 'switch to normal mode' })
 
-vim.keymap.set('n', '<leader>n', ":let @+=expand(\"%:p\").\":\".line('.').\":\t\".getline(\".\")<CR>",
-  { desc = 'switch to normal mode' })
+vim.keymap.set('n', '<leader>n', ":let @+=expand(\"%:p\").\":\".line('.').\":\t\".getline(\".\")<CR>", { desc = 'Copy the current file path and current line content' })
+vim.keymap.set('n', ',f', ":let @+=expand(\"%:t\")<CR>", { desc = 'Copy the current line content' })
+vim.keymap.set('n', ',F', ":let @+=expand(\"%:p\")<CR>", { desc = 'Copy the current file path' })
+vim.keymap.set('n', ',w', ":let @+=<C-R><C-W><CR>", { desc = 'Copy the current word' })
+vim.keymap.set('n', ',W', ":let @+=<C-R><C-A><CR>", { desc = 'Copy the current WORD' })
 
 -- TMUX keymapping
 vim.keymap.set('n', "<C-h>", ":TmuxNavigateLeft<CR>", { desc = 'Navigate to left' })
@@ -52,10 +55,6 @@ vim.cmd([[
 
 " mappings
 :nmap <Insert> i<CR><ESC>
-:nnoremap ,f :let @+ = expand("%:t")<CR>
-:nnoremap ,F :let @+ = expand("%:p")<CR>
-:nnoremap ,w :let @+ = "<C-R><C-W>"<CR>
-:nnoremap ,W :let @+ = "<C-R><C-A>"<CR>
 
 map <F2> :mksession! ./vim_session <cr> " Quick write session with F2
 map <F3> :source ./vim_session <cr>     " And load session with F3
@@ -71,6 +70,5 @@ nnoremap <silent> ]b :bnext<CR>
 :nnoremap <leader>W :SFiles "<C-R><C-A>"<CR>
 :nnoremap <leader>bw :SBuffers "<C-R><C-W>"<CR>
 :nnoremap <leader>Bw :SBuffers "<C-R><C-A>"<CR>
-
   ]]
 )
