@@ -45,7 +45,7 @@ vim.o.cindent = true
 vim.o.modeline = true
 vim.o.autowrite = true
 
-vim.o.nowrap = true
+vim.o.wrap = false
 vim.o.nospell = true
 
 vim.o.nospell = "manual"
