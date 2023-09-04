@@ -49,6 +49,24 @@ require "user.options"
 require "user.keymaps"
 require "user.cmp"
 
+-- Autocommand that reloads -- Autocommand that reloads neovim whenever you save the keymaps.lua file
+vim.cmd [[
+  augroup keymaps_user_config
+    autocmd!
+    autocmd BufWritePost keymaps.lua source <afile>
+  augroup end
+]]
+
+
+-- Autocommand that reloads neovim whenever you save the options.lua file
+vim.cmd [[
+  augroup options_user_config
+    autocmd!
+    autocmd BufWritePost options.lua source <afile>
+  augroup end
+]]
+
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
