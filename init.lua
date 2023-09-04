@@ -214,54 +214,8 @@ require('lazy').setup({
 
 }, {})
 
--- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
--- Set highlight on search
-vim.o.hlsearch = true
-
--- Make line numbers default
-vim.wo.number = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
-
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
-
--- Enable break indent
-vim.o.breakindent = true
-
--- Save undo history
-vim.o.undofile = true
-
--- Case-insensitive searching UNLESS \C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Decrease update time
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
-
-
--- from Vikki's vimrc
-
--- helight all found matching word
-vim.o.incsearch = true
-
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
-
+require "user.options"
 
 -- [[ Basic Keymaps ]]
 
@@ -556,31 +510,6 @@ cmp.setup {
 --
 vim.cmd([[
 
-set nocompatible              " be iMproved, required
-
-
-set encoding=utf-8
-
-" split windows vertically when termdebug is intitiated
-let g:termdebug_wide=1
-
-" automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
-
-:syntax enable
-
-" add current directory in path
-set path+=**
-
-set wildmenu
-
-:set backspace=indent,eol,start
-
-"Adjust case for auto complete
-:set infercase
-
-:set ruler showcmd showmode
-:set shortmess+=|
 
 " mappings
 :nmap <Insert> i<CR><ESC>
@@ -618,13 +547,6 @@ let g:SearchPatterns = {}
 map <F2> :mksession! ./vim_session <cr> " Quick write session with F2
 map <F3> :source ./vim_session <cr>     " And load session with F3
 
-:set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
-:set nospell
-" Toggle spell checking on and off with `\s`
-:nmap <silent> <leader>s :set spell!<CR>
-
-
-:set nowrap
 
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
@@ -859,19 +781,16 @@ function! MyTabLine()
   return s
 endfunction
 
-:set tabline=%!MyTabLine()
-:set showtabline=2
+" Toggle spell checking on and off with `\s`
+:nmap <silent> <leader>s :set spell!<CR>
 
-:set cindent
-:set modeline
-:set autowrite
+:set tabline=%!MyTabLine()
 let $PAGER=''
 
 "----------------------- Abbreiviations ------------------"
 
 
 "======================= folding =================="
-:set foldmethod=manual
 ":set foldcolumn=4 " extra 4 columns added at front to show details of folding
 :command! -nargs=1 ICF exe "normal! mz gg" | call IfCodeFolding(<q-args>) | "normal! `z"
 function! IfCodeFolding(pattern)
@@ -904,12 +823,6 @@ endfunction
 "-------------------vimdiff--------------------"
 "set diffopt+=iwhite
 
-set wildmenu
-set wildmode=longest:list
-set wildignore+=*.o
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
-set wildignore+=.DS_Store,.git,.hg,.svn
-set wildignore+=*.swp
 
 
 function! Restore_search()
@@ -1063,7 +976,5 @@ EOF
   endfor
 endfunction
 
-"Disable bell sound
-set belloff=all
   ]]
 )
