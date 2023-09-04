@@ -9,8 +9,6 @@ local keymap = vim.keymap.set
 
 
 keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " " --Remap space as leader key
-vim.g.maplocalleader = " "
 
 
 -- Modes
