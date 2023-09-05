@@ -48,6 +48,7 @@ require "user.plugins"
 require "user.options"
 require "user.keymaps"
 require "user.cmp"
+require "user.telescope"
 
 -- Autocommand that reloads -- Autocommand that reloads neovim whenever you save the keymaps.lua file
 vim.cmd [[
@@ -78,22 +79,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-    path_display = { truncate = 2 },
-  },
-}
 
--- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
