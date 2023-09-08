@@ -70,6 +70,8 @@ require('lazy').setup({
   'hrsh7th/cmp-cmdline',
   'hrsh7th/vim-vsnip',
   'hrsh7th/vim-vsnip-integ',
+  "hrsh7th/cmp-nvim-lua",
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
