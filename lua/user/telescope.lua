@@ -12,13 +12,18 @@ local actions = require "telescope.actions"
 -- See `:help telescope` and `:help telescope.setup()`
 telescope.setup {
   defaults = {
-    path_display = {"smart"},
+    path_display = { truncate = 2 },
 
 file_ignore_patterns = {
-      ".git/",
       "__pycache__/*",
       "__pycache__/",
       "%.pdf",
+      "notes.txt",
+      "tags_.*",
+      "files_.*.txt",
+      ".*.bin",
+      "bazel-out/",
+      "bazel-bin/",
     },
 
     mappings = {
