@@ -1,14 +1,11 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
-vim.o.hlsearch = true -- Set highlight on search
 vim.wo.number = true -- Make line numbers default
 vim.o.mouse = 'a' -- Enable mouse mode
 vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
 vim.o.breakindent = true -- Enable break indent
 vim.o.undofile = true -- Save undo history
-vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
-vim.o.smartcase = true
 vim.o.updatetime = 250 -- Decrease update time
 vim.o.timeoutlen = 300
 
@@ -17,8 +14,10 @@ vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better compl
 vim.o.termguicolors = true -- NOTE: You should make sure your terminal supports this
 
 
-
 vim.o.incsearch = true -- helight all found matching word
+vim.o.hlsearch = true -- Set highlight on search
+vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
+vim.o.smartcase = true
 
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2

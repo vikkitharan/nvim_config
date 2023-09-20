@@ -20,6 +20,8 @@ keymap("", "<Space>", "<Nop>", opts)
 --   command_mode = "c",
 
 -- Normal --
+keymap('n', "<leader>j", ":noh<CR>", { desc = 'Clear highlight search' })
+
 -- Better window navigation
 vim.keymap.set('n', "<C-h>", ":TmuxNavigateLeft<CR>", { desc = 'Navigate to left' })
 vim.keymap.set('n', "<C-j>", ":TmuxNavigateDown<CR>", { desc = 'Navigate to down' })
