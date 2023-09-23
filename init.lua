@@ -49,6 +49,7 @@ require "user.options"
 require "user.keymaps"
 require "user.cmp"
 require "user.telescope"
+require "user.gitsigns"
 
 -- Autocommand that reloads -- Autocommand that reloads neovim whenever you save the keymaps.lua file
 vim.cmd [[
