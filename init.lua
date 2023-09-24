@@ -43,6 +43,9 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- nvim-tree: disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 require "user.plugins"
 require "user.options"
@@ -50,6 +53,7 @@ require "user.keymaps"
 require "user.cmp"
 require "user.telescope"
 require "user.gitsigns"
+require "user.nvim-tree"
 
 -- Autocommand that reloads -- Autocommand that reloads neovim whenever you save the keymaps.lua file
 vim.cmd [[

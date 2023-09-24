@@ -156,6 +156,14 @@ require('lazy').setup({
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
   --
+
+  {
+    'kyazdani42/nvim-tree.lua',
+    dependencies = {
+      'kyazdani42/nvim-web-devicons',
+    },
+  },
+
   -- From Vikki's vimrc
   -- <leader be> list all buffers
   'jlanzarotta/bufexplorer',

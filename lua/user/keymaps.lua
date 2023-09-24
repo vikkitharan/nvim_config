@@ -29,8 +29,8 @@ vim.keymap.set('n', "<C-k>", ":TmuxNavigateUp<CR>", { desc = 'Navigate to up' })
 vim.keymap.set('n', "<C-l>", ":TmuxNavigateRight<CR>", { desc = 'Navigate to right' })
 vim.keymap.set('n', "<C-\\>", ":TmuxNavigatePrevious<CR>", { desc = 'Navigate to previouw' })
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
-
+-- Nvimtree
+keymap("n", "<leader>tt", ":NvimTreeToggle<cr>", opts)
 
 -- Resize with arrows
 -- does not work in tmux
