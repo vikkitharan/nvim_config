@@ -15,7 +15,7 @@ require "user.telescope"
 require "user.gitsigns"
 require "user.nvim-tree"
 require "user.comment"
-
+require "user.autopairs"
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
