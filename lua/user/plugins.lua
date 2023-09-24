@@ -164,6 +164,14 @@ require('lazy').setup({
     },
   },
 
+
+  {
+    'numToStr/Comment.nvim',
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
+  },
+
   -- From Vikki's vimrc
   -- <leader be> list all buffers
   'jlanzarotta/bufexplorer',

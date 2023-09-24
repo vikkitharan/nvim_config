@@ -54,6 +54,7 @@ require "user.cmp"
 require "user.telescope"
 require "user.gitsigns"
 require "user.nvim-tree"
+require "user.comment"
 
 -- Autocommand that reloads -- Autocommand that reloads neovim whenever you save the keymaps.lua file
 vim.cmd [[
@@ -150,6 +151,11 @@ require('nvim-treesitter.configs').setup {
         ['<leader>A'] = '@parameter.inner',
       },
     },
+  },
+
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
   },
 }
 
