@@ -110,7 +110,14 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
+  },
+
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -164,13 +171,6 @@ require('lazy').setup({
     },
   },
 
-
-  {
-    'numToStr/Comment.nvim',
-    dependencies = {
-      'JoosepAlviste/nvim-ts-context-commentstring',
-    },
-  },
 
   -- From Vikki's vimrc
   -- <leader be> list all buffers
