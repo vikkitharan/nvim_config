@@ -190,5 +190,12 @@ require('lazy').setup({
   -- Format only modified lines
   { 'joechrisellis/lsp-format-modifications.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
+
+  -- My plugin
+  {
+    'vikkitharan/luaPlugin',
+    branch = 'master',
+  },
+
 }, {})
 
