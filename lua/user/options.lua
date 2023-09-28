@@ -1,12 +1,12 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
-vim.wo.number = true -- Make line numbers default
+vim.o.number = true -- Enable line numbers
 vim.o.mouse = 'a' -- Enable mouse mode
 vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
 vim.o.breakindent = true -- Enable break indent
 vim.o.undofile = true -- Save undo history
-vim.o.updatetime = 250 -- Decrease update time
+vim.o.updatetime = 250 -- After 250 ms the swap file will be written
 vim.o.timeoutlen = 300
 
 vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
@@ -22,8 +22,6 @@ vim.o.smartcase = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
-
---vim.o.nocompatible = true -- be iMproved, required
 
 vim.o.encoding = "utf-8"
 
@@ -49,15 +47,14 @@ vim.o.spell = false
 
 vim.o.cursorline = true
 
+vim.opt.belloff = "all" -- disable bell sound
+
 vim.cmd([[
 
 " add current directory in path
 set path+=**
 
 :set shortmess+=|
-
-"Disable bell sound
-set belloff=all
 
 :set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 

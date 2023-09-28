@@ -4,12 +4,7 @@
 --
 local opts = { noremap = true, silent = true }
 
--- Shorten function name
-local keymap = vim.keymap.set
-
-
-keymap("", "<Space>", "<Nop>", opts)
-
+vim.keymap.set("", "<Space>", "<Nop>", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -20,7 +15,7 @@ keymap("", "<Space>", "<Nop>", opts)
 --   command_mode = "c",
 
 -- Normal --
-keymap('n', "<leader>j", ":noh<CR>", { desc = 'Clear highlight search' })
+vim.keymap.set('n', "<leader>j", ":noh<CR>", { desc = 'Clear highlight search' })
 
 -- Better window navigation
 vim.keymap.set('n', "<C-h>", ":TmuxNavigateLeft<CR>", { desc = 'Navigate to left' })
@@ -30,14 +25,14 @@ vim.keymap.set('n', "<C-l>", ":TmuxNavigateRight<CR>", { desc = 'Navigate to rig
 vim.keymap.set('n', "<C-\\>", ":TmuxNavigatePrevious<CR>", { desc = 'Navigate to previouw' })
 
 -- Nvimtree
-keymap("n", "<leader>tt", ":NvimTreeToggle<cr>", opts)
+vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<cr>", opts)
 
 -- Resize with arrows
 -- does not work in tmux
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 
 -- Insert --
@@ -47,19 +42,18 @@ vim.keymap.set('i', "jj", "<Esc>", { desc = 'switch to normal mode' })
 
 -- Visual --
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", opts)
+vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
+vim.keymap.set("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv", opts)
+vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv", opts)
+vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
