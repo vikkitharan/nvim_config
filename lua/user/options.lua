@@ -14,8 +14,6 @@ vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better compl
 vim.o.termguicolors = true -- NOTE: You should make sure your terminal supports this
 
 
-vim.o.incsearch = true -- helight all found matching word
-vim.o.hlsearch = true -- Set highlight on search
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.smartcase = true
 
@@ -23,16 +21,8 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
-vim.o.encoding = "utf-8"
-
-vim.o.wildmenu = true
-
-vim.o.backspace = 'indent,eol,start'
-
 vim.o.infercase = true -- Adjust case for auto complete
 
-vim.o.ruler = true
-vim.o.showcmd = true
 vim.o.showmode = true
 
 vim.o.showtabline = 2
@@ -46,8 +36,6 @@ vim.o.wrap = false
 vim.o.spell = false
 
 vim.o.cursorline = true
-
-vim.opt.belloff = "all" -- disable bell sound
 
 vim.cmd([[
 

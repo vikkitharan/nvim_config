@@ -17,6 +17,16 @@ vim.keymap.set("", "<Space>", "<Nop>", opts)
 -- Normal --
 vim.keymap.set('n', "<leader>j", ":noh<CR>", { desc = 'Clear highlight search' })
 
+-- change buffer
+vim.keymap.set('n', "<leader>bj", ":bprevious<CR>", { desc = 'Change to the previous buffer' })
+vim.keymap.set('n', "<leader>bl", ":bnext<CR>", { desc = 'Change to the next buffer' })
+
+-- Delete current buffer without afecting the window
+vim.keymap.set('n', "<leader>bd", ":bp|bd #<CR>", { desc = 'Delete current buffer without affectong the window' })
+
+-- Toggle spelling check
+vim.keymap.set('n', "<leader>sp", ":set spell!<CR>", { desc = 'Toggle spell check' })
+
 -- Better window navigation
 vim.keymap.set('n', "<C-h>", ":TmuxNavigateLeft<CR>", { desc = 'Navigate to left' })
 vim.keymap.set('n', "<C-j>", ":TmuxNavigateDown<CR>", { desc = 'Navigate to down' })
@@ -38,6 +48,9 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Insert --
 -- Press jj fast to enter
 vim.keymap.set('i', "jj", "<Esc>", { desc = 'switch to normal mode' })
+
+-- insert at the cursor position
+vim.keymap.set('n', "<Insert>", "i<CR><ESC>", { desc = 'Insert at the currsor position' })
 
 
 -- Visual --
@@ -76,18 +89,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 vim.cmd([[
 
-" mappings
-:nmap <Insert> i<CR><ESC>
-
 map <F2> :mksession! ./vim_session <cr> " Quick write session with F2
 map <F3> :source ./vim_session <cr>     " And load session with F3
-
-
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-
-" Toggle spell checking on and off with `\s`
-:nmap <silent> <leader>s :set spell!<CR>
 
 :nnoremap <leader>w :SFiles "<C-R><C-W>"<CR>
 :nnoremap <leader>W :SFiles "<C-R><C-A>"<CR>

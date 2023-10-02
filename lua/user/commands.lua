@@ -17,11 +17,6 @@ let g:termdebug_wide=1
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-:syntax enable
-
-
-:command! Bd bp|bd #
-
 :command! -nargs=1 SFiles call SearchFiles(<q-args>)
 :command! -nargs=1 SBuffers call SearchBuffers(<q-args>)
 :command! -nargs=1 Open call OpenFile(<q-args>)
