@@ -86,6 +86,13 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- flash
+vim.keymap.set({ "n", "x", "o" }, '<leader>f', function() require("flash").jump() end, { desc = 'Flash' })
+vim.keymap.set({ "n", "x", "o" }, '<leader>F',function() require("flash").treesitter() end, { desc = 'Flash Treesitter' })
+--[[ vim.keymap.set({"o" }, '<leader>fr',  function() require("flash").remote() end, { desc = 'Remote Flash' }) ]]
+--[[ vim.keymap.set({"o", "x" }, '<leader>Fr', function() require("flash").treesitter_search() end, { desc = 'Treesitter Search' }) ]]
+--[[ vim.keymap.set({"c"}, '<leader>ft', function() require("flash").toggle() end, { desc = 'Toggle Flash Search' }) ]]
+
 
 vim.cmd([[
 

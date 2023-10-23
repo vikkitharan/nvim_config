@@ -183,8 +183,8 @@ require('lazy').setup({
   -- a source code browser plugin for Vim and provides an overview of the structure of source code files and allows you to efficiently browse through source code files for different programming languages. 
   'vim-scripts/taglist.vim',
 
-  -- simpler way to use some motions in vim
-  'easymotion/vim-easymotion',
+  -- flash.nvim lets you navigate your code with search labels, enhanced character motions, and Treesitter integration.
+  'folke/flash.nvim',
 
   -- Format only modified lines
   { 'joechrisellis/lsp-format-modifications.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
