@@ -192,5 +192,11 @@ require('lazy').setup({
   -- A tree like view for symbols in Neovim using the Language Server Protocol. Supports all your favourite languages.
   'simrat39/symbols-outline.nvim',
 
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = {
+      'kevinhwang91/promise-async',
+    },
+  },
 }, {})
 
