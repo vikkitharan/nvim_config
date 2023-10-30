@@ -189,5 +189,8 @@ require('lazy').setup({
   -- Format only modified lines
   { 'joechrisellis/lsp-format-modifications.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
+  -- A tree like view for symbols in Neovim using the Language Server Protocol. Supports all your favourite languages.
+  'simrat39/symbols-outline.nvim',
+
 }, {})
 
