@@ -198,5 +198,8 @@ require('lazy').setup({
       'kevinhwang91/promise-async',
     },
   },
+
+
+  "akinsho/toggleterm.nvim",
 }, {})
 
