@@ -177,6 +177,16 @@ require('lazy').setup({
   -- <leader be> list all buffers
   'jlanzarotta/bufexplorer',
 
+
+  {
+    'akinsho/bufferline.nvim',
+    dependencies = {
+      'moll/vim-bbye',
+    },
+  },
+
+
+
   -- transparently switch between tmux panes and vim split windows
   'christoomey/vim-tmux-navigator',
 
