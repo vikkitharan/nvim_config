@@ -46,6 +46,19 @@ local on_attach = function(_, bufnr)
   lsp_format_modifications.attach(_, bufnr, { format_on_save = false })
 end
 
+
+function FormatFunction()
+  vim.lsp.buf.format({
+    async = true,
+    range = {
+      ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+      ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+    }
+  })
+end
+
+vim.keymap.set('v', "<leader><leader>=", "<Esc><cmd>lua FormatFunction()<CR>", { noremap = true, desc = 'Format rage' })
+
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --

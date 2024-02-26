@@ -35,12 +35,6 @@ let g:Base = buflist[vimcount]
 let g:FileNo = 0
 let g:SearchPatterns = {}
 
-
-autocmd FileType c map <buffer> <C-B> :py3f /usr/share/vim/addons/syntax/clang-format.py<cr>
-autocmd FileType c imap <buffer> <C-B> <c-o>:py3f /usr/share/vim/addons/syntax/clang-format.py<cr>
-
-autocmd FileType python map <buffer> <C-B> :! autopep8 --in-place --aggressive --aggressive  % <cr>
-
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 :autocmd FileType python set equalprg=yapf
