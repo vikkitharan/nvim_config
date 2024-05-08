@@ -39,9 +39,6 @@ vim.o.cursorline = true
 
 vim.cmd([[
 
-" add current directory in path
-set path+=**
-
 :set shortmess+=|
 
 :set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
