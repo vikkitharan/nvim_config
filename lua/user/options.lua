@@ -41,8 +41,6 @@ vim.cmd([[
 
 :set shortmess+=|
 
-:set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
-
 set wildmode=longest:list
 set wildignore+=*.o
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
