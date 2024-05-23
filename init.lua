@@ -15,6 +15,6 @@ require "user.comment"
 require "user.autopairs"
 require "user.diffview"
 require "user.symbols-outline"
-require "user.ufo"
-require "user.toggleterm"
-require "user.bufferline"
+--[[ require "user.ufo" ]]
+--[[ require "user.toggleterm" ]]
+--[[ require "user.bufferline" ]]
