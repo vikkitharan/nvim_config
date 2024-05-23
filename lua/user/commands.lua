@@ -37,8 +37,6 @@ let g:SearchPatterns = {}
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
-:autocmd FileType python set equalprg=yapf
-
 function! GdbBtRearrange()
   :exe '%s/\n\(#\)\@!/\1/g'
   :exe '%s/^#\d\+.\{-\}in //g'
