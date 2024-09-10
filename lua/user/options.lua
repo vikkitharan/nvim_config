@@ -34,7 +34,8 @@ vim.o.expandtab = true
 
 vim.o.infercase = true -- Adjust case for auto complete
 
-vim.o.showmode = true
+-- Don't show the mode, since it's already in the status line
+vim.o.showmode = false
 
 vim.o.showtabline = 2
 
@@ -48,6 +49,25 @@ vim.o.spell = false
 
 -- Show which line your cursor is on
 vim.o.cursorline = true
+
+-- Set to true if you have a Nerd Font installed and selected in the terminal
+vim.g.have_nerd_font = true
+
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Preview substitutions live, as you type!
+vim.opt.inccommand = 'split'
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 10
 
 vim.cmd([[
 
