@@ -15,6 +15,8 @@ vim.keymap.set("", "<Space>", "<Nop>", opts)
 --   command_mode = "c",
 
 -- Normal --
+-- Clear highlights on search when pressing <leader>j in normal mode
+--  See `:help hlsearch`
 vim.keymap.set('n', "<leader>j", ":noh<CR>", { desc = 'Clear highlight search' })
 
 -- change buffer

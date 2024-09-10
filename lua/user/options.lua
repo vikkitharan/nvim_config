@@ -1,20 +1,31 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
-vim.o.number = true -- Enable line numbers
-vim.o.mouse = 'a' -- Enable mouse mode
+-- Make line numbers default
+vim.o.number = true
+
+-- Enable mouse mode, can be useful for resizing splits for example!
+vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
-vim.o.breakindent = true -- Enable break indent
-vim.o.undofile = true -- Save undo history
-vim.o.updatetime = 250 -- After 250 ms the swap file will be written
+
+-- Enable break indent
+vim.o.breakindent = true
+
+ -- Save undo history
+vim.o.undofile = true
+
+ -- After 250 ms the swap file will be written
+vim.o.updatetime = 250
+
+-- Displays which-key popup sooner
 vim.o.timeoutlen = 300
 
 vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
 
 vim.o.termguicolors = true -- NOTE: You should make sure your terminal supports this
 
-
-vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.o.tabstop = 2
@@ -35,6 +46,7 @@ vim.o.autowrite = true
 vim.o.wrap = false
 vim.o.spell = false
 
+-- Show which line your cursor is on
 vim.o.cursorline = true
 
 vim.cmd([[
