@@ -80,3 +80,8 @@ set wildignore+=.DS_Store,.git,.hg,.svn
 set wildignore+=*.swp
 ]]
 )
+
+if vim.opt.diff:get() then
+  vim.cmd.colorscheme 'pablo'
+end
+
