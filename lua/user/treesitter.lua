@@ -3,10 +3,29 @@ require("nvim-treesitter.install").prefer_git = true
 
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'bash', 'c', 'cpp', 'diff', 'html', 'go', 'lua', 'luadoc', 'markdown', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = {
+    'bash',
+    'c',
+    'cpp',
+    'diff',
+    'html',
+    'go',
+    'lua',
+    'luadoc',
+    'markdown',
+    'markdown_inline',
+    'query',
+    'python',
+    'rust',
+    'tsx',
+    'typescript',
+    'verilog',
+    'vhdl',
+    'vimdoc',
+    'vim' },
 
-  -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-  auto_install = false,
+  -- Autoinstall languages that are not installed
+  auto_install = true,
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -65,6 +84,6 @@ require('nvim-treesitter.configs').setup {
   },
 
   autopairs = {
-		enable = true,
-	},
+    enable = true,
+  },
 }
