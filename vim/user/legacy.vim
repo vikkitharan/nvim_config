@@ -41,9 +41,9 @@ function! SearchBuffers(pattern )
     let pattern = a:pattern
   endif
   if strpart(pattern, len(pattern)-2, 2) == "\\c"
-    :exe "! grep -in \'".strpart(pattern,0,len(pattern)-2)."\' ".bl." > /tmp/S".g:Base.g:FileNo.""
+    :exe "! grep -inP \'".strpart(pattern,0,len(pattern)-2)."\' ".bl." > /tmp/S".g:Base.g:FileNo.""
   else
-    :exe "! grep -n \'".pattern."\' ".bl." > /tmp/S".g:Base.g:FileNo.""
+    :exe "! grep -nP \'".pattern."\' ".bl." > /tmp/S".g:Base.g:FileNo.""
   endif
   exe ":e /tmp/S".g:Base.g:FileNo.""
   let b:search = pattern
@@ -63,9 +63,9 @@ function! SearchFiles(pattern)
   let FileNo = g:FileNo
 
   if strpart(pattern, len(pattern)-2, 2) == "\\c"
-    exe ":! cat ".g:FileName." | xargs grep -in \'".strpart(pattern,0,len(pattern)-2)."\' > /tmp/S".g:Base.FileNo.""
+    exe ":! cat ".g:FileName." | xargs grep -inP \'".strpart(pattern,0,len(pattern)-2)."\' > /tmp/S".g:Base.FileNo.""
   else
-    exe ":! cat ".g:FileName." | xargs grep -n \'".pattern."\' > /tmp/S".g:Base.FileNo.""
+    exe ":! cat ".g:FileName." | xargs grep -nP \'".pattern."\' > /tmp/S".g:Base.FileNo.""
   endif
   exe ":e /tmp/S".g:Base.FileNo.""
   let b:search = pattern
@@ -88,9 +88,9 @@ function! ArgFiles(pattern)
     let pattern = a:pattern
   endif
   if strpart(pattern, len(pattern)-2, 2) == "\\c"
-    exe ":! cat ".g:FileName." | xargs grep -il \'".strpart(pattern,0,len(pattern)-2)."\' > /tmp/Stemp"
+    exe ":! cat ".g:FileName." | xargs grep -ilP \'".strpart(pattern,0,len(pattern)-2)."\' > /tmp/Stemp"
   else
-    exe ":! cat ".g:FileName." | xargs grep -l \'".pattern."\' > /tmp/Stemp"
+    exe ":! cat ".g:FileName." | xargs grep -lP \'".pattern."\' > /tmp/Stemp"
   endif
   exe ":ar `cat /tmp/Stemp`"
   let @/ = pattern
@@ -121,9 +121,9 @@ function! OpenFile(pattern)
     let pattern = a:pattern
   endif
   if strpart(pattern, len(pattern)-2, 2) == "\\c"
-    exe ":!grep -i \'".strpart(pattern,0,len(pattern)-2)."\' ".g:FileName." > /tmp/aatmp"
+    exe ":!grep -iP \'".strpart(pattern,0,len(pattern)-2)."\' ".g:FileName." > /tmp/aatmp"
   else
-    exe ":!grep \'".pattern."\' ".g:FileName." > /tmp/aatmp"
+    exe ":!grep -P \'".pattern."\' ".g:FileName." > /tmp/aatmp"
   endif
   let FileLst = readfile('/tmp/aatmp')
   let nooffiles = len(FileLst)
