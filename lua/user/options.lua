@@ -71,6 +71,8 @@ vim.opt.scrolloff = 10
 
 vim.cmd([[
 
+syntax on
+
 :set shortmess+=|
 
 set wildmode=longest:list
