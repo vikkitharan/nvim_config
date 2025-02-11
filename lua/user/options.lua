@@ -28,8 +28,9 @@ vim.o.termguicolors = true -- NOTE: You should make sure your terminal supports 
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
 vim.o.expandtab = true
 
 vim.o.infercase = true -- Adjust case for auto complete
@@ -68,6 +69,9 @@ vim.opt.inccommand = 'split'
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- disable copying indentation from the previous line.
+vim.o.autoindent = false
 
 vim.cmd([[
 
