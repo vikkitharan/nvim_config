@@ -28,8 +28,8 @@ vim.o.termguicolors = true -- NOTE: You should make sure your terminal supports 
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 vim.o.infercase = true -- Adjust case for auto complete
