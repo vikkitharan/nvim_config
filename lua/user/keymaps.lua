@@ -95,6 +95,8 @@ vim.keymap.set({ "n", "x", "o" }, '<leader>F',function() require("flash").treesi
 --[[ vim.keymap.set({"o", "x" }, '<leader>Fr', function() require("flash").treesitter_search() end, { desc = 'Treesitter Search' }) ]]
 --[[ vim.keymap.set({"c"}, '<leader>ft', function() require("flash").toggle() end, { desc = 'Toggle Flash Search' }) ]]
 
+vim.keymap.set('n', '<leader>*', [[:let @/ = expand('<cword>')<CR>n]], { desc = "Search partial word under cursor" })
+
 
 vim.cmd([[
 
