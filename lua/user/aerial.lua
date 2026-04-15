@@ -1,10 +1,12 @@
-require('aerial').setup({
+local status_ok, aerial = pcall(require, 'aerial')
+if not status_ok then return end
+
+aerial.setup({
   layout = {
     default_direction = 'right',
     width = 25,
   },
   attach_mode = 'window',
-  close_automatic_events = {},
   autojump = false,
   highlight_on_hover = false,
   show_guides = true,
