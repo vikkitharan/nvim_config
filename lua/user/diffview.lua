@@ -1,7 +1,10 @@
 -- Lua
+local status_ok, diffview = pcall(require, "diffview")
+if not status_ok then return end
+
 local actions = require("diffview.actions")
 
-require("diffview").setup({
+diffview.setup({
   diff_binaries = false,    -- Show diffs for binaries
   enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
   git_cmd = { "git" },      -- The git executable followed by default args.
@@ -216,3 +219,7 @@ require("diffview").setup({
     },
   },
 })
+vim.keymap.set('n', '<leader>gd', '<cmd>DiffviewOpen<CR>', { desc = 'Open Diffview' })
+vim.keymap.set('n', '<leader>gh', '<cmd>DiffviewFileHistory %<CR>', { desc = 'File History' })
+vim.keymap.set('n', '<leader>gH', '<cmd>DiffviewFileHistory<CR>', { desc = 'Repo History' })
+vim.keymap.set('n', '<leader>gc', '<cmd>DiffviewClose<CR>', { desc = 'Close Diffview' })
