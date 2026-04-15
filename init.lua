@@ -31,3 +31,5 @@ if config_folder then
 else
     vim.cmd.source("~/.config/nvim/vim/user/legacy.vim")
 end
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
