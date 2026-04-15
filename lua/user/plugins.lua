@@ -51,7 +51,6 @@ require('lazy').setup({
       -- Automatically install LSPs to stdpath for neovim
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -79,8 +78,6 @@ require('lazy').setup({
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',
-  'hrsh7th/vim-vsnip-integ',
-  "hrsh7th/cmp-nvim-lua",
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
@@ -288,9 +285,6 @@ require('lazy').setup({
 
   -- transparently switch between tmux panes and vim split windows
   'christoomey/vim-tmux-navigator',
-
-  -- a source code browser plugin for Vim and provides an overview of the structure of source code files and allows you to efficiently browse through source code files for different programming languages. 
-  'vim-scripts/taglist.vim',
 
   -- flash.nvim lets you navigate your code with search labels, enhanced character motions, and Treesitter integration.
   'folke/flash.nvim',
