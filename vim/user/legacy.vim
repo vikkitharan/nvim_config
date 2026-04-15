@@ -15,7 +15,7 @@ autocmd VimResized * :wincmd =
 :command! -nargs=0 OpenSearchFile call OpenSearchFile()
 
 :let buflist = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-:let vimcount = system("pgrep vim | wc -l")
+:let vimcount = system("pgrep -x nvim | wc -l")
 :let vimcount = vimcount - 1
 let g:Base = buflist[vimcount]
 let g:FileNo = 0
@@ -350,19 +350,12 @@ function! DeleteBuffers( )
     let name = fnamemodify(buf.name, ":t")
     echo buf.bufnr . " " . name
   endfor
-  let files = input("Select files to close: ")
-
-"Use python for string to list with split()
-python3 << EOF
-import vim
-files = vim.eval('files').split()
-vim.command("let files = %s" % files)
-EOF
-
+  let files = split(input("Select files to close: "))
   for i in files
     :exe "b " . i
     :exe "bd " . i
   endfor
 endfunction
+
 autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
 autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
