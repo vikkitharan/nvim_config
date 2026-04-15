@@ -79,7 +79,6 @@ require('lazy').setup({
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',
-  'hrsh7th/vim-vsnip',
   'hrsh7th/vim-vsnip-integ',
   "hrsh7th/cmp-nvim-lua",
 
@@ -206,9 +205,9 @@ require('lazy').setup({
   --
 
   {
-    'kyazdani42/nvim-tree.lua',
+    'nvim-tree/nvim-tree.lua',
     dependencies = {
-      'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
     },
   },
 
