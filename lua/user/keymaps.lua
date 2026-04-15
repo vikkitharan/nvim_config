@@ -24,7 +24,7 @@ vim.keymap.set('n', "<leader>bj", ":bprevious<CR>", { desc = 'Change to the prev
 vim.keymap.set('n', "<leader>bl", ":bnext<CR>", { desc = 'Change to the next buffer' })
 
 -- Delete current buffer without afecting the window
-vim.keymap.set('n', "<leader>bd", ":bp|bd #<CR>", { desc = 'Delete current buffer without affectong the window' })
+vim.keymap.set('n', "<leader>bd", ":bp|bd #<CR>", { desc = 'Delete current buffer without affecting the window' })
 
 -- Toggle spelling check
 vim.keymap.set('n', "<leader>sp", ":set spell!<CR>", { desc = 'Toggle spell check' })
@@ -98,14 +98,12 @@ vim.keymap.set({ "n", "x", "o" }, '<leader>F',function() require("flash").treesi
 vim.keymap.set('n', '<leader>*', [[:let @/ = expand('<cword>')<CR>n]], { desc = "Search partial word under cursor" })
 
 
-vim.cmd([[
+-- Session management
+vim.keymap.set('n', '<F2>', ':mksession! ./vim_session<CR>', { desc = 'Save session' })
+vim.keymap.set('n', '<F3>', ':source ./vim_session<CR>', { desc = 'Load session' })
 
-map <F2> :mksession! ./vim_session <cr> " Quick write session with F2
-map <F3> :source ./vim_session <cr>     " And load session with F3
-
-:nnoremap <leader>w :SFiles "<C-R><C-W>"<CR>
-:nnoremap <leader>W :SFiles "<C-R><C-A>"<CR>
-:nnoremap <leader>bw :SBuffers "<C-R><C-W>"<CR>
-:nnoremap <leader>Bw :SBuffers "<C-R><C-A>"<CR>
-  ]]
-)
+-- Custom search commands (defined in legacy.vim)
+vim.keymap.set('n', '<leader>w', ':SFiles "<C-R><C-W>"<CR>', { desc = 'Search files for word under cursor' })
+vim.keymap.set('n', '<leader>W', ':SFiles "<C-R><C-A>"<CR>', { desc = 'Search files for WORD under cursor' })
+vim.keymap.set('n', '<leader>bw', ':SBuffers "<C-R><C-W>"<CR>', { desc = 'Search buffers for word under cursor' })
+vim.keymap.set('n', '<leader>Bw', ':SBuffers "<C-R><C-A>"<CR>', { desc = 'Search buffers for WORD under cursor' })
