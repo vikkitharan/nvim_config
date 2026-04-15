@@ -1,55 +1,62 @@
 -- [[ Setting options ]]
--- See `:help vim.o`
+-- See `:help vim.opt`
 
 -- Make line numbers default
-vim.o.number = true
+vim.opt.number = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.o.mouse = 'a'
-vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
+vim.opt.mouse = 'a'
+
+-- Sync clipboard between OS and Neovim.
+vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
-vim.o.breakindent = true
+vim.opt.breakindent = true
 
- -- Save undo history
-vim.o.undofile = true
+-- Save undo history
+vim.opt.undofile = true
 
- -- After 250 ms the swap file will be written
-vim.o.updatetime = 250
+-- After 250 ms the swap file will be written
+vim.opt.updatetime = 250
 
 -- Displays which-key popup sooner
-vim.o.timeoutlen = 300
+vim.opt.timeoutlen = 300
 
-vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
+-- Set completeopt to have a better completion experience
+vim.opt.completeopt = 'menuone,noselect'
 
-vim.o.termguicolors = true -- NOTE: You should make sure your terminal supports this
+-- NOTE: You should make sure your terminal supports this
+vim.opt.termguicolors = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
-vim.o.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
 
-vim.o.infercase = true -- Adjust case for auto complete
+-- Adjust case for auto complete
+vim.opt.infercase = true
 
 -- Don't show the mode, since it's already in the status line
-vim.o.showmode = false
+vim.opt.showmode = false
 
-vim.o.showtabline = 2
+-- bufferline handles the tabline, hide native tabline
+vim.opt.showtabline = 0
 
+vim.opt.cindent = true
 
-vim.o.cindent = true
-vim.o.modeline = true
-vim.o.autowrite = true
+-- Disable modelines for security
+vim.opt.modeline = false
 
-vim.o.wrap = false
-vim.o.spell = false
+vim.opt.autowrite = true
+vim.opt.wrap = false
+vim.opt.spell = false
 
 -- Show which line your cursor is on
-vim.o.cursorline = true
+vim.opt.cursorline = true
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -70,24 +77,18 @@ vim.opt.inccommand = 'split'
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- disable copying indentation from the previous line.
-vim.o.autoindent = false
+-- Wildmenu completion
+vim.opt.wildmode = 'longest:list'
+vim.opt.wildignore:append({
+  '*.o',
+  '*.bmp', '*.gif', '*.ico', '*.jpg', '*.png',
+  '.DS_Store', '.git', '.hg', '.svn',
+  '*.swp',
+})
 
-vim.cmd([[
-
-syntax on
-
-:set shortmess+=|
-
-set wildmode=longest:list
-set wildignore+=*.o
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
-set wildignore+=.DS_Store,.git,.hg,.svn
-set wildignore+=*.swp
-]]
-)
+-- Shorten messages
+vim.cmd('set shortmess+=|')
 
 if vim.opt.diff:get() then
   vim.cmd.colorscheme 'pablo'
 end
-
