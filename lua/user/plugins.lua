@@ -157,7 +157,7 @@ require('lazy').setup({
 
   -- Fuzzy Finder (files, lsp, etc)
   {
-    'ravitharan/telescope.nvim',
+    'vikkitharan/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
