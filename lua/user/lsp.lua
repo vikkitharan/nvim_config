@@ -13,7 +13,7 @@ local on_attach = function(_, bufnr)
       desc = 'LSP: ' .. desc
     end
 
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
   end
 
   -- Rename the variable under your cursor.
@@ -73,7 +73,6 @@ local on_attach = function(_, bufnr)
   lsp_format_modifications.attach(_, bufnr, { format_on_save = false })
 end
 
-
 function FormatFunction()
   vim.lsp.buf.format({
     async = true,
@@ -84,23 +83,15 @@ function FormatFunction()
   })
 end
 
-vim.keymap.set('v', "<leader><leader>=", "<Esc><cmd>lua FormatFunction()<CR>", { noremap = true, desc = 'Format rage' })
+vim.keymap.set('v', "<leader><leader>=", "<Esc><cmd>lua FormatFunction()<CR>", { noremap = true, desc = 'Format range' })
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
---
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
-local servers = {
+-- nvim-cmp capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+-- Per-server settings
+local server_settings = {
   clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -110,24 +101,21 @@ local servers = {
   },
 }
 
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+-- Register config for each server using the new vim.lsp.config API
+for server_name, settings in pairs(server_settings) do
+  vim.lsp.config(server_name, {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = settings,
+  })
+end
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end
+-- Ensure servers are installed and enable them
+require('mason-lspconfig').setup {
+  ensure_installed = vim.tbl_keys(server_settings),
+  handlers = {
+    function(server_name)
+      vim.lsp.enable(server_name)
+    end,
+  },
 }

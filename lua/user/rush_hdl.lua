@@ -1,5 +1,6 @@
-lspconfig = require('lspconfig')
-lspconfig['vhdl_ls'].setup({
+vim.lsp.config('vhdl_ls', {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 })
+
+vim.lsp.enable('vhdl_ls')
