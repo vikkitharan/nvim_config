@@ -78,6 +78,10 @@ local on_attach = function(_, bufnr)
 
   local lsp_format_modifications = require "lsp-format-modifications"
   lsp_format_modifications.attach(_, bufnr, { format_on_save = false })
+
+  vim.keymap.set('n', '<leader>ti', function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
+  end, { buffer = bufnr, desc = 'Toggle Inlay Hints' })
 end
 
 function FormatFunction()
