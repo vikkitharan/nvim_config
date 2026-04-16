@@ -7,7 +7,7 @@ vim.filetype.add({
     vhd = 'vhdl',
   },
 })
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -77,11 +77,32 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 
   local lsp_format_modifications = require "lsp-format-modifications"
-  lsp_format_modifications.attach(_, bufnr, { format_on_save = false })
+  lsp_format_modifications.attach(client, bufnr, { format_on_save = false })
 
   vim.keymap.set('n', '<leader>ti', function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
   end, { buffer = bufnr, desc = 'Toggle Inlay Hints' })
+
+  -- LSP document highlight
+  local group = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
+  vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+    buffer = bufnr,
+    group = group,
+    callback = vim.lsp.buf.document_highlight,
+  })
+  vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+    buffer = bufnr,
+    group = group,
+    callback = vim.lsp.buf.clear_references,
+  })
+  -- Clean up highlights when LSP detaches
+  vim.api.nvim_create_autocmd('LspDetach', {
+    group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
+    callback = function(event)
+      vim.lsp.buf.clear_references()
+      vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event.buf }
+    end,
+  })
 end
 
 function FormatFunction()
