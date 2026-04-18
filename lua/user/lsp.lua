@@ -77,7 +77,7 @@ local on_attach = function(client, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 
   local lsp_format_modifications = require "lsp-format-modifications"
-  lsp_format_modifications.attach(client, bufnr, { format_on_save = false })
+  lsp_format_modifications.attach(client, bufnr, { format_on_save = true })
 
   vim.keymap.set('n', '<leader>ti', function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
