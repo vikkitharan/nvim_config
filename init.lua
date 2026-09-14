@@ -23,6 +23,7 @@ require "user.toggleterm"
 require "user.bufferline"
 require "user.rush_hdl"
 require "user.search_parents"
+require "user.dap"
 
 local config_folder = os.getenv("NVIM_APPNAME")
 if config_folder then

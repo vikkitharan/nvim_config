@@ -123,7 +123,7 @@ require('lazy').setup({
       -- Document existing key chains
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ocument' },
+          { '<leader>d', group = '[D]ebug' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
@@ -291,7 +291,17 @@ require('lazy').setup({
 
 
   "akinsho/toggleterm.nvim",
-}, 
+    {
+      'mfussenegger/nvim-dap',
+      dependencies = {
+        'rcarriga/nvim-dap-ui',
+        'nvim-neotest/nvim-nio',           -- required by dap-ui
+        'jay-babu/mason-nvim-dap.nvim',    -- auto install adapters via Mason
+        'theHamsta/nvim-dap-virtual-text', -- variable values inline
+        'mfussenegger/nvim-dap-python',    -- Python support
+      },
+    },
+  },
   {
     ui = {
       -- If you are using a Nerd Font: set icons to an empty table which will use the
