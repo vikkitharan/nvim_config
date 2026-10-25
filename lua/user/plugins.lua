@@ -301,6 +301,7 @@ require('lazy').setup({
         'mfussenegger/nvim-dap-python',    -- Python support
       },
     },
+    "stevearc/conform.nvim",
   },
   {
     ui = {
