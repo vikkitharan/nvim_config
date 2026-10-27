@@ -128,6 +128,7 @@ local server_settings = {
       diagnostics = { globals = { 'vim' } },
     },
   },
+  ts_ls = {},
 }
 
 -- Register config for each server using the new vim.lsp.config API
