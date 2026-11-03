@@ -302,6 +302,38 @@ require('lazy').setup({
       },
     },
     "stevearc/conform.nvim",
+    {
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      dependencies = { 'williamboman/mason.nvim' },
+      opts = {
+        ensure_installed = {
+          -- LSP servers
+          'clangd',
+          'lua-language-server',
+          'pyright',
+          'bash-language-server',
+          'typescript-language-server',
+          'ltex-ls',
+          'rust_hdl', -- provides vhdl_ls
+
+          -- Formatters
+          'clang-format',
+          'black',
+          'isort',
+          'prettier',
+          'stylua',
+          'shfmt',
+
+          -- Linters
+          'flake8',
+          'shellcheck',
+
+          -- Debug adapters
+          'debugpy',
+        },
+        run_on_start = true,
+      },
+    },
   },
   {
     ui = {
