@@ -7,13 +7,14 @@ conform.setup {
   formatters_by_ft = {
     c      = { 'clang-format' }, -- picks up the project's .clang-format
     cpp    = { 'clang-format' },
-    python = { 'black' },
+    python = { 'isort', 'black' },
     javascript = { 'prettier' },
     json       = { 'prettier' },
-    lua        = { 'stylua' },
-    -- uncomment after :MasonInstall shfmt
-    -- sh   = { 'shfmt' },
-    -- bash = { 'shfmt' },
+    html = { 'prettier' },
+    css  = { 'prettier' },
+    lua  = { 'stylua' },
+    sh   = { 'shfmt' },
+    bash = { 'shfmt' },
   },
   -- any other filetype: use the LSP formatter if one is attached
   default_format_opts = { lsp_format = 'fallback', timeout_ms = 2000 },
